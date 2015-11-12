@@ -1,8 +1,0 @@
-- allow functionality for getting a content using url
-- get content and store it in tree format same as xpath
-- checkpoint 1 : have this capability http://docs.python-guide.org/en/latest/scenarios/scrape/
-- soup prettify
-- get and separate tags
-- create a cabal package
-- test on hackernews
-
