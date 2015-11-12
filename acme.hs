@@ -119,4 +119,3 @@ main = do
 	let k_num = 5
 	putStrLn $ decode caesar k_num (encode caesar k_num "HELLO WORLD"
 	putStrLn "Hello"
-
