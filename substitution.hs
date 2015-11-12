@@ -1,6 +1,7 @@
 import Data.List
 import System.IO
 import Data.List
+import Data.List.Split
 import Data.Char
 import Data.Function
 
@@ -42,6 +43,11 @@ correcting (x:xs) = (clearnoise x):(correcting xs)
 beechka:: String->[String]
 beechka x = group (sort x)
 
+merge :: [a] -> [a] -> [a]
+merge xs [] = xs
+merge [] ys = ys
+merge (x:xs) (y:ys) = x : y : merge xs ys
+
 letterfrequency :: [String] -> [Int]
 letterfrequency x = fmap length (x)
 
@@ -54,10 +60,10 @@ main = do
 	let wfinal = correcting wextract
 	let sortedwords = groupBy ((==) `on` length) $ sortBy (compare `on` length) wfinal
 	let onlyalphabets = clearnoise samecasewords
-	let chunksof2 = sort (chunksOf 2 samecasewords)
+	let digrams = groupBy ((==)) $ sort (merge (chunksOf 2 onlyalphabets) (chunksOf 2 (drop 1 onlyalphabets)))
 	let groupedsorted = beechka onlyalphabets
 	let frequencylist = letterfrequency groupedsorted
 	let alphabetlist = reduceredundancy groupedsorted
 	let tuples = maketuple frequencylist alphabetlist
 	let sortedtuples = reverse (sort tuples)
-	print sortedtuples
+	print digrams
