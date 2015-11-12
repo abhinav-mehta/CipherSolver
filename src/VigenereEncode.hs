@@ -2,7 +2,6 @@ module VigenereEncode where
 
 import Data.Char (ord, chr)
 
-
 vigenereEncode :: String -> String -> String
 vigenereEncode _ [] = []
 vigenereEncode (t:ts) (x:xs)

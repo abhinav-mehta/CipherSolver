@@ -1,3 +1,5 @@
+module PlayFair where
+
 import Data.Char
 import Data.List
 import Data.List.HT
@@ -32,12 +34,14 @@ encode' k (x:y:xs) | x == y    = encode' k [x] ++ encode' k (y:xs)
 decode' :: Key -> String -> String
 decode' k = concatMap (\[x,y] -> bigram k (-1) x y) . chunk 2
  
-encode :: String -> String -> String
+playFairEncode :: String -> String -> String
 encode k = encode' (key k) . process
  
-decode :: String -> String -> String
+playFairDecode :: String -> String -> String
 decode k = decode' (key k) . process
  
+{-
 main :: IO ()
 main = do print $ encode "PLAYFAIR" "PROGRAMMING PRAXIS"
           print $ decode "PLAYFAIR" "LIVOBLKZEDOELIYWCN"
+-}
