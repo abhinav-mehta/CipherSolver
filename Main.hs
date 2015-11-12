@@ -14,18 +14,22 @@ main = do
 	data2 <- hGetContents =<< openFile "cracklib-small" ReadMode
 	let bigData = sort $ (words $ map cleaner data1) ++ (words $ map cleaner data2)
 	raw <-getLine
-	let raw2 = words raw
-	rotate <- getLine
-	print bigData
+	let raw2 = words $ map cleaner raw
+	putStrLn (decrypt bigData raw2)
 
 
 decrypt :: [String] -> [String] -> String
-decrypt bigData raw = caesarDecode t $ unwords raw 
+decrypt bigData raw = caesarDecode t2 $ unwords raw 
 	where
-		t = snd $ cmax $ matchNumber [0...25] bigData raw  
-		where	
-			cmax (x:xs) = fst x : max 
-
+		t1 = fmax $ matchNumber [0, 1.. 25] bigData raw 
+			where
+				fmax k = maximum (map fst k)   
+		t2 = sfmax (matchNumber [0, 1.. 25] bigData raw) t1   
+			where	
+				sfmax [] _ = 0
+				sfmax (x:xs) t1 | fst x == t1 = snd x
+								| True = sfmax xs t1
+				
 
 matchNumber :: [Int] -> [String] -> [String] -> [(Int,Int)]
 matchNumber [] _ _ = []
