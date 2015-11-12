@@ -38,10 +38,9 @@ t2 = singleton 2
 tree1 = Node (Node t3 6 t4) 5 (Node t1 0 t2)
 
 
-{-aux x empty = (x, empty)
+aux x empty = (x, empty)
 aux x (Node l input r) = (y, res)
 	where (xl, l') = aux x l
 	      (xr, r') = aux x r
 	      y = minimum[xl, xr, input]
 	      res = Node l' y r'
--}
