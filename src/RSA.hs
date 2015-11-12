@@ -1,3 +1,5 @@
+module RSA where
+
 import System.IO
 import Data.Numbers.Primes
 import Data.List
@@ -20,6 +22,7 @@ textmaker::[Int] -> [Char]
 textmaker [] = []
 textmaker (x:xs) = (chr ((x `div` 1000)::Int)):(chr (mod x 1000)):(textmaker xs)
 
+{-
 main::IO()
 main = do
 	inh <- openFile "input.txt" ReadMode
@@ -31,3 +34,4 @@ main = do
 	let key = (read (keystr!!0)::Int):(read (keystr!!1)::Int):[]
 	let cipher = ciphermaker message (key!!0) (key!!1)
 	print cipher
+-}
