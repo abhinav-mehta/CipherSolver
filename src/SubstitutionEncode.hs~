@@ -42,7 +42,7 @@ substitutionEncode y (x:xs) |x=='a' = ((y !! 0):(substitutionEncode y xs))
 				 |x=='z' = ((y !! 25):(substitutionEncode y xs))
 				 |otherwise = (x:(substitutionEncode y xs))
 
-
+{-
 main::IO() -- main function
 main = do
 	inh <- openFile "input.txt" ReadMode
@@ -52,4 +52,4 @@ main = do
 	key <- hGetContents keyf
 	let cipher = substitutionEncode key samecasewords
 	print cipher
-
+-}

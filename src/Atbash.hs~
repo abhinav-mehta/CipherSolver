@@ -1,5 +1,3 @@
-module Atbash where
-
 import Data.List
 import System.IO
 import Data.List

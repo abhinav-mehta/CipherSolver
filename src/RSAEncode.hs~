@@ -28,7 +28,7 @@ main = do
 	inh <- openFile "test/input.txt" ReadMode
 	contents <- hGetContents inh
 	let message = msgmaker contents
-	keyfile <- openFile "test/keyrsa.txt" ReadMode
+	keyfile <- openFile "test/srkeyrsa.txt" ReadMode
 	keys <- hGetContents keyfile
 	let keystr = words keys
 	let key = (read (keystr!!0)::Int):(read (keystr!!1)::Int):[]

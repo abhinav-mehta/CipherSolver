@@ -7,7 +7,7 @@ import Data.Char (ord, chr)
 
 affineEncode :: Int -> Int -> String -> String
 affineEncode a b = map f
- 	where f c = chr $ (a*(ord c - ord 'a')+b) `mod` 26 + ord 'a'
+ 	where f c = chr $ (a*(ord c - ord 'A')+b) `mod` 26 + ord 'A'
 
 {-
 affineDecode :: Int -> Int -> String -> String
