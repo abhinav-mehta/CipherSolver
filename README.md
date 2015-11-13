@@ -64,3 +64,35 @@ For Atbash cipher
   ```Haskell
   let message = atbash cipher
   ```
+For Morse-code
+  encoding:
+  ```Haskell
+  let cipher = morseEncode message
+  ```
+  
+  decoding:
+  ```Haskell
+  let message = morseDecode cipher
+  ```
+  
+For PlayFair cipher
+  encoding:
+  ```Haskell
+  let cipher = playFairEncode key message
+  ```
+  
+  decoding:
+  ```Haskell
+  let message = playFairDecode key cipher
+  ```
+
+For Vigenere cipher
+  encoding:
+  ```Haskell
+  let cipher = vigenereEncode key message
+  ```
+  
+  decoding:
+  ```Haskell
+  let message = vigenereDecode key cipher
+  ```
