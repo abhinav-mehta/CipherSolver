@@ -13,10 +13,10 @@ name:                CipherSolver
 version:             0.1.0.0
 
 -- A short (one-line) description of the package.
-synopsis:            Encoding, decoding and solution of some common ciphers
+synopsis:            Cipher encoder, decoder and solver
 
 -- A longer description of the package.
--- description: 	Encoder, decoder and solver for some common ciphers.       
+-- description:         
 
 -- URL for the project homepage or repository.
 homepage:            https://github.com/abhinav-mehta/CipherSolver
@@ -47,13 +47,13 @@ cabal-version:       >=1.8
 
 library
   -- Modules exported by the library.
-  exposed-modules:     MainVigenere, Main, MainCaesar, CaesarEncode, VigenereEncode, CaesarDecode, Playfair, VigenereDecode, Adder, Fac3, BinTree, Quicksort, Table, Foldr2, Length1, Map1, Foldl2, Null1, Reader, Fact4, Fib2, Foldr1, Punctuate, Fac1, Curr, WordCount, Partition, Sieve, CompactInt, Fac2, Foldl1
+  exposed-modules:     RSAEncode, AffineEncode, MorseDecode, CaesarEncode, VigenereEncode, AffineDecode, CaesarDecode, Playfair, Atbash, MorseEncode, VigenereDecode, SolveCaesar, SubstitutionEncode
   
   -- Modules included in this library but not exported.
   -- other-modules:       
   
   -- Other library packages from which modules are imported.
-  build-depends:       base ==4.6.*, split ==0.2.*, containers ==0.5.*, text ==1.2.*, parsec ==3.1.*
+  build-depends:       base ==4.6.*, split ==0.2.*, containers ==0.5.*
   
   -- Directories containing source files.
   hs-source-dirs:      src
